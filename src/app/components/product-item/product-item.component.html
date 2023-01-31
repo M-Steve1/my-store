@@ -1,5 +1,5 @@
 <form class="product-container">
-    <img class="product-image" src="{{ product.url }}" alt="{{ product.name }}">
+    <img (dblclick)="onDblClick(product)" class="product-image" src="{{ product.url }}" alt="{{ product.name }}">
     <p>{{ product.name }}</p>
     <p>{{ product.price }}</p>
     <select 
