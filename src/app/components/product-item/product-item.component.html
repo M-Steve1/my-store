@@ -1,1 +1,15 @@
-<p>product-item works!</p>
+<form class="product-container">
+    <img class="product-image" src="{{ product.url }}" alt="{{ product.name }}">
+    <p>{{ product.name }}</p>
+    <p>{{ product.price }}</p>
+    <select 
+        class="select-input" 
+        name="quantity" 
+        id="quantity">
+    </select>
+    <input 
+        [ngStyle]="{'background-color': 'aqua'}" 
+        class="select-input"  
+        type="button" 
+        value="Add to cart">
+</form>
