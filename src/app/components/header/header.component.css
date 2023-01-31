@@ -1,10 +1,16 @@
 .header {
-    text-align: center;
-    background: #33B5E5;
-    color: #fff;
-    padding: 12px;
-  }
-  
-  a {
-    color: #ffffff;
-  }
+  text-align: center;
+  background: #33B5E5;
+  color: #fff;
+  padding: 12px;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+h4 {
+  display: inline;
+  margin: 0px 0px 5px 4px;
+}
