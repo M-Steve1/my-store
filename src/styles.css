@@ -9,3 +9,11 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+
+.button {
+  background-color: lightblue;
+  height: 30px;
+  width: 150px;
+  cursor: pointer;
+  border-radius: 10px;
+}
