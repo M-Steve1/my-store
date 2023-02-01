@@ -24,3 +24,7 @@ img {
     margin-top: 8px;
     text-decoration: none;
   }
+
+  h2, p {
+    margin-bottom: 15px;
+  }
