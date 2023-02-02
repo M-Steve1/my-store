@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter} from '@angular/core';
-import { Router } from '@angular/router';
+import { Order } from 'src/app/models/Order';
 import { Product } from 'src/app/models/Product';
 
 @Component({
@@ -15,10 +15,22 @@ export class ProductItemComponent {
     description: ''
   }
   @Output() productDetail: EventEmitter<Product> = new EventEmitter();
+  @Output() createOrder: EventEmitter<Order> = new EventEmitter();
+  quantity: number = 1;
 
-  constructor(private router: Router) {}
+  constructor() {}
 
   onDblClick(product: Product) {
     this.productDetail.emit(product)
+  }
+
+  onCreateOrder(product: Product) {
+    const order: Order = {
+      productId: product.id as unknown as string,
+      quantity: parseInt(this.quantity as unknown as string)
+    }
+
+    this.createOrder.emit(order);
+    this.quantity = 1
   }
 }

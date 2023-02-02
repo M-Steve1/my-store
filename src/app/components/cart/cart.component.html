@@ -1,1 +1,100 @@
-<p>cart works!</p>
+<div 
+    [ngClass]="{'empty-cart-message': orders.length === 0}" 
+    *ngIf="orders.length === 0">
+    <h1>Cart is empty</h1>
+</div>
+<div 
+    *ngIf="orders.length !== 0" 
+    class="cart-container">
+    <div>
+        <div 
+            *ngFor="let product of productsInCart" 
+            class="cart-item">
+            <img src="{{ product.url }}" alt="product.name">
+            <div class="cart-item-details">
+                <h3>{{ product.name }}</h3>
+                <p>{{ product.price }}</p>
+                <div>
+                    Amount:
+                    <input
+                        disabled
+                        class="number-input"
+                        type="text" 
+                        name="quantity" 
+                        value="{{ product.quantity }}">
+                </div>
+            </div>
+        </div>
+        <h2>Total: ${{ totalPrice.toFixed(2) }} </h2>
+    </div>
+
+    <form #form="ngForm" class="cart-panel">
+        <label for="fullName">Full Name</label>
+        <input
+            required
+            class="form-margin" 
+            type="text" 
+            name="fullName" 
+            id="fullName" 
+            placeholder="Enter your full name"
+            [(ngModel)]="fullName"
+            #theFullName="ngModel">
+        <label for="address">Address</label>
+        <input
+            required
+            class="form-margin" 
+            type="text" 
+            name="address" 
+            id="address" 
+            placeholder="Enter your address"
+            [(ngModel)]="address"
+            #theAddress="ngModel">
+        <label for="cardNumber">Credit card number</label>
+        <input
+            required
+            minlength="16"
+            maxlength="16"
+            class="form-margin"      
+            type="text"
+            name="cardNumber"
+            id="cardNumber"
+            placeholder="(16-digit number)"
+            [(ngModel)]="cardNumber"
+            #card="ngModel">
+        <span class="form-margin">
+            We'll never share your payment details with anyone
+        </span>
+        <button 
+            [disabled]="form.invalid"
+            routerLink="/confirmation" 
+            class="button" 
+            type="submit">
+            Submit
+        </button>
+        
+    </form>
+    <div 
+        *ngIf="theFullName.invalid && (theFullName.dirty || theFullName.touched)" class="alert">
+    <div *ngIf="theFullName.errors?.['required']">
+        Full Name is required
+    </div>
+    <div
+        *ngIf="theAddress.invalid && (theAddress.dirty || theAddress.touched)" class="alert">
+        <div *ngIf="theAddress.errors?.['required']">
+            Address is required
+        </div>
+    </div>
+    <div
+        *ngIf="card.invalid && (card.dirty || card.touched)" class="alert">
+        <div *ngIf="card.errors?.['required']">
+            Card Number is required
+        </div>
+        <div *ngIf="card.errors?.['minlength']">
+            Enter your 16 digits
+        </div>
+    </div>
+</div>
+
+
+
+

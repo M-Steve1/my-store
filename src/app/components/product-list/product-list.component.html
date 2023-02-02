@@ -1,11 +1,13 @@
 <div *ngIf="!hideProductItems" class="product-index"> 
     <app-product-item
+        (createOrder)="createOrder($event)"
         (productDetail)="onDblClick($event)"
         class="product-container"
         *ngFor="let product of products"
         [product]="product">
     </app-product-item>
 </div>
-<app-product-item-detail *ngIf="hideProductItems"
+<app-product-item-detail 
+    *ngIf="hideProductItems"
     [productDetail]="productDetail">
 </app-product-item-detail>

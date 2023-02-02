@@ -3,10 +3,20 @@ img {
     border-radius: 10px;
   }
   
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
   .form-margin {
     margin-bottom: 12px;
   }
-  
+
+  form input {
+    width: 350px;
+    height: 40px;
+  }
+
   .cart-item {
     display: flex;
     flex-direction: row;

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Order } from 'src/app/models/Order';
 import { Product } from 'src/app/models/Product';
+import { OrderService } from 'src/app/services/order.service';
 import { ProductService } from 'src/app/services/product.service';
 import { UiService } from 'src/app/services/ui.service';
 
@@ -18,7 +20,7 @@ export class ProductListComponent {
   }
   hideProductItems: boolean = false;
 
-  constructor(private productService: ProductService, private uiService: UiService) {
+  constructor(private productService: ProductService, private uiService: UiService, private orderService: OrderService) {
     this.uiService.onHideProduct().subscribe(res => {
       this.hideProductItems = res as boolean;
     })
@@ -33,5 +35,9 @@ export class ProductListComponent {
   onDblClick(product: Product): void {
     this.productDetail = product;
     this.uiService.hideProduct();
+  }
+
+  createOrder(order: Order): void {
+    this.orderService.createOrder(order);
   }
 }

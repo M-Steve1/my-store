@@ -1,8 +1,9 @@
-<form class="product-container">
+<form class="product-container" (ngSubmit)="onCreateOrder(product)">
     <img (dblclick)="onDblClick(product)" class="product-image" src="{{ product.url }}" alt="{{ product.name }}">
     <p>{{ product.name }}</p>
     <p>{{ product.price }}</p>
-    <select 
+    <select
+        [(ngModel)]="quantity"
         class="select-input" 
         name="quantity" 
         id="quantity"
