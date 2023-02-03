@@ -70,6 +70,7 @@
             [disabled]="form.invalid"
             class="button" 
             type="submit"
+            (click)="clearCart()"
             (click)="addPaymentDetails()"
             routerLink="/confirmation">
             Submit

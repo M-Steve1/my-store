@@ -24,4 +24,8 @@ export class OrderService {
   getOrders(): Observable<Order[]> {
     return this.http.get<Order[]>(this.apiUrl);
   }
+
+  deleteOrder(orderId: number): void {
+    this.http.delete<Order>(this.apiUrl + '/' + `${orderId}`).subscribe();
+  }
 }

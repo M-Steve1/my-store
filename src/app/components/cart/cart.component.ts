@@ -48,4 +48,13 @@ export class CartComponent implements OnInit {
     this.address = '';
     this.cardNumber = '';
   }
+
+  clearCart(): void {
+    for (let i = 0; i < this.orders.length; i++) {
+      const orderId = this.orders[i].id as unknown as number;
+      this.orderService.deleteOrder(orderId)
+    }
+    this.orders = [];
+    this.productsInCart = [];
+  }
 }
