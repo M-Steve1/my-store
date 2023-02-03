@@ -28,4 +28,9 @@ export class OrderService {
   deleteOrder(orderId: number): void {
     this.http.delete<Order>(this.apiUrl + '/' + `${orderId}`).subscribe();
   }
+
+  updateOrder(orderId: number, order: Order): void {
+    const url = `${this.apiUrl}/${orderId}`
+    this.http.put<Order>(url, order, httpOptions).subscribe();
+  }
 }

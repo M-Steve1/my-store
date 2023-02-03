@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from 'src/app/models/Order';
 import { Payment } from 'src/app/models/Payment';
-import { Product } from 'src/app/models/Product';
+import { ProductsInCart } from 'src/app/models/ProductsInCart';
 import { OrderService } from 'src/app/services/order.service';
 import { PaymentService } from 'src/app/services/payment.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -14,11 +14,12 @@ import { Router } from '@angular/router';
 })
 export class CartComponent implements OnInit {
   orders: Order[] = []
-  productsInCart: Product[] = [];
+  productsInCart: ProductsInCart[] = [];
   totalPrice: number = 0;
   fullName: string = '';
   address: string = '';
   cardNumber: string = '';
+  updateProductQuantity: number = 0;
 
   constructor(private orderService: OrderService, private productService: ProductService, private paymentService: PaymentService, private router: Router) {}
 
@@ -28,14 +29,15 @@ export class CartComponent implements OnInit {
       for (let i= 0; i < this.orders.length; i++) {
         const productId = this.orders[i].productId
         this.productService.getProductById(productId).subscribe(product => {
-          product['quantity'] = this.orders[i].quantity
+          product['quantity'] = this.orders[i].quantity;
+          product['orderId'] = this.orders[i].id;
           this.productsInCart.push(product);
-          this.totalPrice += product.price;
+          this.totalPrice += (product.price * product.quantity);
         })
       }
     })
   }
-
+  
   navigate(): void {
     this.router.navigate(['confirmation'], 
     {
@@ -55,6 +57,15 @@ export class CartComponent implements OnInit {
     this.fullName = '';
     this.address = '';
     this.cardNumber = '';
+  }
+
+  updateQuantity(orderId: number | unknown, quantity: number | unknown, productId: number | unknown, productPrice: number): void {
+    const order: Order = {
+      productId: productId as unknown as string,
+      quantity: quantity as unknown as number
+    }
+    this.orderService.updateOrder(orderId as unknown as number, order);
+    this.totalPrice += productPrice;
   }
 
   clearCart(): void {

@@ -11,7 +11,14 @@ export class ConfirmationComponent {
   totalPrice: number = 0;
 
   constructor(private router: Router) {
-    this.fullName = this.router.getCurrentNavigation()?.extras.state?.['fullName'];
-    this.totalPrice = this.router.getCurrentNavigation()?.extras.state?.['totalPrice'];
+    this.fullName = this.router
+    .getCurrentNavigation()
+    ?.extras.state
+    ?.['fullName'];
+    
+    this.totalPrice = this.router
+    .getCurrentNavigation()
+    ?.extras.state
+    ?.['totalPrice'];
   }
 }

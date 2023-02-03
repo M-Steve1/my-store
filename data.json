@@ -43,17 +43,31 @@
       "description": "Wear it with style!"
     }
   ],
-  "orders": [
+  "orders": [],
+  "payment-details": [
     {
-      "productId": 1,
-      "quantity": 1,
+      "fullName": "Modebe Stephen",
+      "address": "Ogunstate, Nigeria",
+      "cardNumber": "1234567789029384",
       "id": 1
     },
     {
-      "productId": 1,
-      "quantity": 2,
+      "fullName": "Modebe Stephen",
+      "address": "Ogunstate, Nigeria",
+      "cardNumber": "1234567789029384",
       "id": 2
+    },
+    {
+      "fullName": "Modebe Stephen",
+      "address": "Ogunstate, Nigeria",
+      "cardNumber": "1234567789029384",
+      "id": 3
+    },
+    {
+      "fullName": "Modebe Stephen",
+      "address": "Ogunstate, Nigeria",
+      "cardNumber": "1234567789029384",
+      "id": 4
     }
-  ],
-  "payment-details": []
+  ]
 }

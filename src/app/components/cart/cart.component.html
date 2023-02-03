@@ -17,11 +17,13 @@
                 <div>
                     Amount:
                     <input
-                        disabled
+                        min="1"
                         class="number-input"
                         type="number" 
                         name="quantity" 
-                        value="{{ product.quantity }}">
+                        value="{{ product.quantity }}"
+                        [(ngModel)]="product.quantity"
+                        (change)="updateQuantity(product.orderId, product.quantity, product.id, product.price)">
                 </div>
             </div>
         </div>

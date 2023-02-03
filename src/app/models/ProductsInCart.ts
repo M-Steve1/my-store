@@ -1,9 +1,9 @@
-export interface Product {
-    id: number
+export interface ProductsInCart {
+    id?: number
     name: string
-    price: number,
+    price: number
     url: string
     description: string
-    quantity: number,
-    orderId: number
+    quantity?: number
+    orderId?: number
 }
