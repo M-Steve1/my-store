@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from 'src/app/models/Order';
+import { Payment } from 'src/app/models/Payment';
 import { Product } from 'src/app/models/Product';
 import { OrderService } from 'src/app/services/order.service';
+import { PaymentService } from 'src/app/services/payment.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -17,7 +19,7 @@ export class CartComponent implements OnInit {
   address: string = '';
   cardNumber: string = '';
 
-  constructor(private orderService: OrderService, private productService: ProductService) {}
+  constructor(private orderService: OrderService, private productService: ProductService, private paymentService: PaymentService) {}
 
   ngOnInit(): void {
     this.orderService.getOrders().subscribe(res => {
@@ -31,5 +33,19 @@ export class CartComponent implements OnInit {
         })
       }
     })
+  }
+
+  addPaymentDetails(): void {
+    const paymentDetails: Payment = {
+      fullName: this.fullName,
+      address: this.address,
+      cardNumber: this.cardNumber
+    }
+
+    this.paymentService.addPaymentDetails(paymentDetails);
+
+    this.fullName = '';
+    this.address = '';
+    this.cardNumber = '';
   }
 }

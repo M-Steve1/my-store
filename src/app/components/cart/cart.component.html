@@ -28,7 +28,9 @@
         <h2>Total: ${{ totalPrice.toFixed(2) }} </h2>
     </div>
 
-    <form #form="ngForm" class="cart-panel">
+    <form 
+        #form="ngForm" 
+        class="cart-panel">
         <label for="fullName">Full Name</label>
         <input
             required
@@ -66,9 +68,10 @@
         </span>
         <button 
             [disabled]="form.invalid"
-            routerLink="/confirmation" 
             class="button" 
-            type="submit">
+            type="submit"
+            (click)="addPaymentDetails()"
+            routerLink="/confirmation">
             Submit
         </button>
         
