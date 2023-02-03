@@ -43,7 +43,17 @@
       "description": "Wear it with style!"
     }
   ],
-  "orders": [],
-  "payment-details": [
-  ]
+  "orders": [
+    {
+      "productId": 1,
+      "quantity": 1,
+      "id": 1
+    },
+    {
+      "productId": 1,
+      "quantity": 2,
+      "id": 2
+    }
+  ],
+  "payment-details": []
 }
