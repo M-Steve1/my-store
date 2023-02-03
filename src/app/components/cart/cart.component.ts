@@ -5,6 +5,7 @@ import { Product } from 'src/app/models/Product';
 import { OrderService } from 'src/app/services/order.service';
 import { PaymentService } from 'src/app/services/payment.service';
 import { ProductService } from 'src/app/services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -19,7 +20,7 @@ export class CartComponent implements OnInit {
   address: string = '';
   cardNumber: string = '';
 
-  constructor(private orderService: OrderService, private productService: ProductService, private paymentService: PaymentService) {}
+  constructor(private orderService: OrderService, private productService: ProductService, private paymentService: PaymentService, private router: Router) {}
 
   ngOnInit(): void {
     this.orderService.getOrders().subscribe(res => {
@@ -32,6 +33,13 @@ export class CartComponent implements OnInit {
           this.totalPrice += product.price;
         })
       }
+    })
+  }
+
+  navigate(): void {
+    this.router.navigate(['confirmation'], 
+    {
+      state: {fullName: this.fullName, totalPrice: this.totalPrice}
     })
   }
 

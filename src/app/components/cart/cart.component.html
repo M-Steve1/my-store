@@ -25,7 +25,9 @@
                 </div>
             </div>
         </div>
-        <h2>Total: ${{ totalPrice.toFixed(2) }} </h2>
+        <h2>
+            Total: ${{ totalPrice.toFixed(2) }}
+         </h2>
     </div>
 
     <form 
@@ -70,9 +72,7 @@
             [disabled]="form.invalid"
             class="button" 
             type="submit"
-            (click)="clearCart()"
-            (click)="addPaymentDetails()"
-            routerLink="/confirmation">
+            (click)="[navigate(), addPaymentDetails(), clearCart()]">
             Submit
         </button>
         

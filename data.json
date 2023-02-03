@@ -45,35 +45,5 @@
   ],
   "orders": [],
   "payment-details": [
-    {
-      "fullName": "Modebe Stephen",
-      "address": "No 3- GU29, Powerline Showo Rd, Osaro Area, Ibafo, Ogun State",
-      "cardNumber": "1234567789029384",
-      "id": 1
-    },
-    {
-      "fullName": "Modebe Stephen",
-      "address": "No 3- GU29, Powerline Showo Rd, Osaro Area, Ibafo, Ogun State",
-      "cardNumber": "1234567789029384",
-      "id": 2
-    },
-    {
-      "fullName": "Modebe Stephen",
-      "address": "No 3- GU29, Powerline Showo Rd, Osaro Area, Ibafo, Ogun State",
-      "cardNumber": "1234567789029384",
-      "id": 3
-    },
-    {
-      "fullName": "Modebe Stephen",
-      "address": "No 3- GU29, Powerline Showo Rd, Osaro Area, Ibafo, Ogun State",
-      "cardNumber": "1234567789029384",
-      "id": 4
-    },
-    {
-      "fullName": "Modebe Stephen",
-      "address": "No 3- GU29, Powerline Showo Rd, Osaro Area, Ibafo, Ogun State",
-      "cardNumber": "1234567789029384",
-      "id": 5
-    }
   ]
 }
