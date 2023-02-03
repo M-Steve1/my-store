@@ -9,5 +9,6 @@
 </div>
 <app-product-item-detail 
     *ngIf="hideProductItems"
-    [productDetail]="productDetail">
+    [productDetail]="productDetail"
+    (createOrder)="createOrder($event)">
 </app-product-item-detail>

@@ -1,4 +1,4 @@
-<form class="detail-container">
+<form class="detail-container" (ngSubmit)="onCreateOrder(productDetail)">
     <img src="{{ productDetail.url }}" 
         alt="{{ productDetail.name }}">
     <div class="detail-item">
@@ -15,7 +15,8 @@
             class="select-input" 
             name="quantity" 
             id="quantity"
-            [ngStyle]="{'background-color': '#dfeced'}">
+            [ngStyle]="{'background-color': '#dfeced'}"
+            [(ngModel)]="quantity">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
